@@ -11,6 +11,7 @@ export const apiWithNoHeaders = async(endPoint : string, data : any) => {
 }
 
 export const apiWithHeaders = async(endPoint : string, data : any) => {
+    console.log("Sending request to:", endPoint, "with data:", data);
     const response = await axios({
         method : "POST",
         headers : {
@@ -19,5 +20,6 @@ export const apiWithHeaders = async(endPoint : string, data : any) => {
         url : API_BASE_URL + endPoint,
         data : data
     })
+    console.log("Received response from:", endPoint, ":", JSON.stringify(response.data));
     return response
 }

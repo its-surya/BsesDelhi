@@ -51,9 +51,9 @@ export default function InstallersScreen() {
         }
     }
 
-    const filteredData = installersData?.data?.list.filter(item =>
-        item.installer_name.toLowerCase().includes(search.toLowerCase())
-    );
+    // const filteredData = installersData?.data?.list.filter(item =>
+    //     item.installer_name.toLowerCase().includes(search.toLowerCase())
+    // );
 
     const renderItem = ({ item }: { item: Installer }) => (
         <View style={styles.modifiedCard}>
@@ -111,7 +111,7 @@ export default function InstallersScreen() {
                     <ActivityIndicator size="large" color={colors.primary} style={commonStyles.loader} />
                 ) : (
                     <FlatList
-                        data={filteredData}
+                        data={installersData.data.list}
                         renderItem={renderItem}
                         keyExtractor={(item, index) => index.toString()}
                     />
